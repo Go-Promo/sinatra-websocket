@@ -44,7 +44,8 @@ module SinatraWebsocket
         # Skip standard unbind it this is
         # WebSocket connection
         def unbind_with_websocket
-          self.websocket.unbind
+          self.websocket.unbind if self.websocket?
+        ensure
           unbind_without_websocket
         end
 
